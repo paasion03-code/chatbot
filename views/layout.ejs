@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title || 'Chatbot Admin' %></title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="/admin/dashboard">Dashboard</a>
+      <a href="/admin/chats">Chat History</a>
+      <a href="/admin/manage_users">Manage Users</a>
+      <a href="/logout">Admin Logout</a>
+      <a href="/user/logout">User Logout</a>
+      <a href="/user/login">User Login</a>
+    </div>
+    <%- body %>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<% layout('layout') %>
+<div class="container mt-4">
+  <h2>Chat Users</h2>
+  <a href="/admin/add_user" class="btn btn-primary mb-3">➕ Add User</a>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.id %></td>
+          <td><%= user.username %></td>
+          <td><%= user.created_at %></td>
+          <td>
+            <a href="/admin/delete_user/<%= user.id %>" class="btn btn-danger btn-sm">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

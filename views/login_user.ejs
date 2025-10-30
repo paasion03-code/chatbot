@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat User Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Chat User Login</h2>
+    <% if (error) { %>
+      <p style="color:red;"><%= error %></p>
+    <% } %>
+    <form method="POST" action="/user/login">
+      <p><input type="text" name="username" placeholder="Username" required></p>
+      <p><input type="password" name="password" placeholder="Password" required></p>
+      <p><button type="submit">Login</button></p>
+    </form>
+    <p><a href="/login">Go to Admin Login</a></p>
+  </div>
+</body>
+</html>
