@@ -13,8 +13,6 @@
     font-family: 'Open Sans', sans-serif;
     background: #f5f7f6;
     color: #444;
-    display: flex;
-    flex-direction: column;
     min-height: 100vh;
   }
   header {
@@ -45,44 +43,71 @@
   }
   main {
     max-width: 900px;
-    margin: -50px auto 2rem;
-    padding: 20px;
-    background: rgb(206, 234, 236);
-    box-shadow: 0 8px 20px rgba(107, 142, 35, 0.15);
-    border-radius: 12px;
+    margin: 2rem auto;
+    padding: 0 20px;
   }
-  section {
+  .container-box {
+    background-position: center;
+    background-size: cover;
+    color: white;
+    border-radius: 12px;
+    padding: 30px 25px;
     margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+  .container-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0,0,0,0.55);
+    border-radius: 12px;
+    z-index: 0;
+  }
+  .container-box > * {
+    position: relative;
+    z-index: 1;
   }
   h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8em;
-    margin-bottom: 10px;
-    color: #4a6514;
+    margin-bottom: 15px;
+    color: #dbe9d6;
   }
   p {
     font-size: 1.1em;
     line-height: 1.6;
+    color: #e1e9dd;
+  }
+  a.button-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: #4a6514bb;
+    color: #e9f2de;
+    border-radius: 25px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 5px 12px rgba(74, 101, 20, 0.6);
+    transition: background-color 0.3s ease;
+  }
+  a.button-link:hover {
+    background-color: #3b4e10cc;
   }
   address {
     font-style: normal;
-    margin-bottom: 10px;
     font-size: 1.1em;
     line-height: 1.5;
+    margin-top: 15px;
+    color: #d3d9c7;
   }
   .phone {
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: #36660f;
+    color: #b5d176;
   }
-  .hours {
-    font-style: normal;
-    font-weight: 600;
-    color: #36660f;
-    margin-bottom: 1.5rem;
-  }
-  a.whatsapp-link {
+  .whatsapp-link {
     display: inline-block;
     background-color: #25d366;
     color: rgb(201, 234, 236);
@@ -91,17 +116,17 @@
     font-weight: 700;
     text-decoration: none;
     box-shadow: 0 5px 12px rgba(37, 211, 102, 0.6);
-    transition: background-color 0.3s ease;
+    margin-top: 10px;
   }
-  a.whatsapp-link:hover {
+  .whatsapp-link:hover {
     background-color: #1ebe57;
   }
   .map {
     height: 350px;
-    margin-top: 10px;
+    margin-top: 25px;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(107, 142, 35, 0.18);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
     border: none;
   }
   footer {
@@ -111,7 +136,13 @@
     font-size: 0.9em;
     color: #666;
     margin-top: 40px;
+    border-radius: 12px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  /* Chat styles */
   #chat-toggle {
     position: fixed;
     bottom: 20px;
@@ -185,6 +216,7 @@
   @media(max-width: 620px) {
     header h1 { font-size: 2em; }
     .map { height: 250px; }
+    main { padding: 0 10px; }
   }
 </style>
 </head>
@@ -195,89 +227,80 @@
 </header>
 
 <main>
-  <section>
+  <section class="container-box" style="background-image: url('https://raw.githubusercontent.com/paasion03-code/chatbot/refs/heads/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg');">
     <h2>Find Your Inner Peace Today</h2>
     <p>Transform your life with guided meditation techniques.</p>
-    <a href="https://indianschoolofmeditation.com/" style="display:inline-block; margin-top:15px; padding:12px 24px; background:#6b8e23; color:#fff; border-radius:25px; font-weight:700; text-decoration:none;">Start Your Journey</a>
+    <a href="https://indianschoolofmeditation.com/" class="button-link" target="_blank" rel="noopener">Start Your Journey</a>
   </section>
-  <section>
+
+  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM%20(1).jpeg?raw=true');">
     <h2>Our Philosophy</h2>
     <p>At the Indian School of Meditation, we believe in nurturing the mind and soul through the ancient practise of meditation. Our approach blends traditional techniques with modern insights to create a holistic experience.</p>
+
+    <div class="container mt-4 p-0">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-success" style="background: rgba(255 255 255 / 0.15); color: white;">
+            <div class="card-header bg-success text-white fw-bold">Calibration</div>
+            <div class="card-body">
+              <p>Ensuring every practice and program is delivered by trainers whose own consciousness has been rigorously refined and certified by leading global and traditional schools.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-info" style="background: rgba(255 255 255 / 0.15); color: white;">
+            <div class="card-header bg-info text-white fw-bold">Holism</div>
+            <div class="card-body">
+              <p>Offering a diverse spectrum of practices—from Active meditations to silent Vipassana retreats and Tantra—to cater to the unique energy and needs of every seeker.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow h-100 border-warning" style="background: rgba(255 255 255 / 0.15); color: white;">
+            <div class="card-header bg-warning text-dark fw-bold">Integration</div>
+            <div class="card-body">
+              <p>Providing an all-encompassing experience that nourishes the body, mind, and soul, recognizing that true spiritual growth requires a foundation of physical and emotional well-being.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4 justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow border-primary" style="background: rgba(255 255 255 / 0.15); color: white;">
+            <div class="card-header bg-primary text-white fw-bold">Our Esteemed Host and Lineage</div>
+            <div class="card-body">
+              <p>The ISM experience is anchored by the wisdom and personalized guidance of our host, Dr. Joseph Prasad. Joseph brings a wealth of authentic, multi-disciplinary focused experience, ensuring a program that is both grounded and expansive.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-  
-  <!-- Bootstrap Container Box for the ISM Philosophy -->
-  <div class="container my-5">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card shadow h-100 border-success">
-          <div class="card-header bg-success text-white fw-bold">Calibration</div>
-          <div class="card-body">
-            <p class="card-text">
-              Ensuring every practice and program is delivered by trainers whose own consciousness has been rigorously refined and certified by leading global and traditional schools.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow h-100 border-info">
-          <div class="card-header bg-info text-white fw-bold">Holism</div>
-          <div class="card-body">
-            <p class="card-text">
-              Offering a diverse spectrum of practices—from Active meditations to silent Vipassana retreats and Tantra—to cater to the unique energy and needs of every seeker.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card shadow h-100 border-warning">
-          <div class="card-header bg-warning text-dark fw-bold">Integration</div>
-          <div class="card-body">
-            <p class="card-text">
-              Providing an all-encompassing experience that nourishes the body, mind, and soul, recognizing that true spiritual growth requires a foundation of physical and emotional well-being.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4 justify-content-center">
-      <div class="col-lg-8">
-        <div class="card shadow border-primary">
-          <div class="card-header bg-primary text-white fw-bold">Our Esteemed Host and Lineage</div>
-          <div class="card-body">
-            <p class="mb-1">
-              The ISM experience is anchored by the wisdom and personalized guidance of our host, Dr. Joseph Prasad. Joseph brings a wealth of authentic, multi-disciplinary focused experience, ensuring a program that is both grounded and expansive.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Philosophy section -->
-  
-  <section>
+
+  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM.jpeg?raw=true');">
     <h2>Visit Us</h2>
     <p>Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
     <address>
-      C/O Le Kadamba Homestay,<br> 
-      Number42, Gangekolla, (near Ranga Mandira ground)<br> 
-      Gangavali Beach Rd,<br> 
-      Nadumaskeri post,<br> 
-      Gokarna,<br> 
-      Kumta taluk,<br> 
-      Karnataka state, India <br> 
-      PIN -581319<br> 
-      <a href="tel:9600051234" aria-label="Call 9600051234" class="phone">Phone: 9600051234</a>
-      <br>
+      C/O Le Kadamba Homestay,<br>
+      Number42, Gangekolla, (near Ranga Mandira ground)<br>
+      Gangavali Beach Rd,<br>
+      Nadumaskeri post,<br>
+      Gokarna,<br>
+      Kumta taluk,<br>
+      Karnataka state, India <br>
+      PIN -581319<br>
+      <a href="tel:9600051234" aria-label="Call 9600051234" class="phone">Phone: 9600051234</a><br>
       <a href="https://wa.me/919600051234" target="_blank" rel="noopener" class="whatsapp-link">Message us on WhatsApp</a>
     </address>
     <div class="map">
-      <iframe 
-        src="https://maps.google.com/maps?q=14.582778,74.303306&z=15&output=embed" 
-        width="100%" 
-        height="100%" 
-        style="border:0;" 
-        allowfullscreen 
-        loading="lazy" 
+      <iframe
+        src="https://maps.google.com/maps?q=14.582778,74.303306&z=15&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
@@ -288,6 +311,7 @@
   We use cookies to analyze website traffic and optimize your website experience.
 </footer>
 
+<!-- Chat UI -->
 <div id="chat-toggle">Chat</div>
 <div id="chat-box">
   <div id="chat-header">How can I assist you?</div>
