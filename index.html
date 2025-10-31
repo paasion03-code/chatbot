@@ -74,6 +74,9 @@
     margin-bottom: 15px;
     color: #dbe9d6;
   }
+  h3 {
+    color: #dbe9d6;
+  }
   p {
     font-size: 1.1em;
     line-height: 1.6;
@@ -140,6 +143,22 @@
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  table th, table td {
+    padding: 10px 12px;
+  }
+  table th {
+    background: rgba(74, 101, 20, 0.7);
+    color: #e9f2de;
+    font-weight: 700;
+  }
+  table td {
+    background: rgba(0,0,0,0.4);
+    color: #dbe9d6;
   }
 
   /* Chat styles */
@@ -227,6 +246,8 @@
 </header>
 
 <main>
+
+  <!-- Existing sections -->
   <section class="container-box" style="background-image: url('https://raw.githubusercontent.com/paasion03-code/chatbot/refs/heads/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg');">
     <h2>Find Your Inner Peace Today</h2>
     <p>Transform your life with guided meditation techniques.</p>
@@ -304,6 +325,101 @@
         referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+
+  <!-- New About Us Section with Read More -->
+  <section class="container-box" style="background-image: url('https://raw.githubusercontent.com/paasion03-code/chatbot/refs/heads/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg');">
+    <h2>About Us</h2>
+    <p>
+      Dr. Joseph Prasad holds respected certifications and deep spiritual lineage in meditation and tantra traditions. Alongside his band of calibrated trainers worldwide, he ensures the highest quality of teaching rooted in authoritative lineages and personal experience.
+    </p>
+    
+    <div id="about-more" style="display:none; margin-top: 1rem; color: #e1e9dd;">
+      <h3>Certifications Include:</h3>
+      <ul>
+        <li>Certified Meditation Trainer, Osho International Commune, Pune, India - focused on Dynamic and Cathartic meditation for the modern mind.</li>
+        <li>Tantra Practitioners' Program under Swami Mohan, Jaffna, Sri Lanka - mastering energy play, deep-rooted connections, and sacred life force integration.</li>
+        <li>Eastern Mysticism Course by Swami Rajendra Sharma, Uttarakhand - mastery over ancient Indian spiritual traditions and Himalayan esoteric wisdom.</li>
+      </ul>
+
+      <h3>Programs and The Seeker's Experience:</h3>
+      <p>
+        The Indian School of Meditation offers a flexible structure to meet the diverse needs of both casual explorers and dedicated practitioners. Our programs are designed to cultivate mind and soul growth uniquely tailored to each seeker’s journey.
+      </p>
+    </div>
+
+    <button onclick="toggleReadMore()" style="margin-top: 10px; padding: 8px 16px; background: #4a6514bb; color: #e9f2de; border: none; border-radius: 20px; cursor: pointer; font-weight: 700;">
+      Read More
+    </button>
+  </section>
+
+  <!-- Comprehensive Program Offerings Section -->
+  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM.jpeg?raw=true'); margin-bottom:0;">
+    <h2>Comprehensive Program Offerings</h2>
+    <div>
+      <h4>Daily Sessions</h4>
+      <p>Perfect for residents or short-stay visitors to integrate powerful, guided meditation into their day.</p>
+
+      <h4>Weekly & Monthly Sessions</h4>
+      <p>Structured courses exploring a specific meditation style in depth (<translate>Vipassana</translate>, Dynamic, Kundalini, Chakra Cleansing, etc.).</p>
+
+      <h4>Specialized Packages & Intensive Retreats</h4>
+      <p>Multi-day or multi-week retreats for deep healing and rejuvenation (themes: Inner Silence, Emotional Resilience, Consciousness Expansion).</p>
+
+      <h4>Group & 1:1 Sessions</h4>
+      <p>Available for both on-site and online participation, welcoming seekers worldwide into the ISM community.</p>
+
+      <h4>The Flagship: Train-the-Trainer Program (T3P)</h4>
+      <ul>
+        <li>Theory and Philosophy: Core texts, psychology, and meditation traditions.</li>
+        <li>Technique Mastery: Active & passive forms, teaching methodologies.</li>
+        <li>Personal Calibration: Self-practice for spiritual maturity.</li>
+        <li>Practical Teaching Experience: Supervised sessions & expert feedback.</li>
+      </ul>
+      <p>Successful T3P graduates are certified for world-class, ethical, and transformative guidance.</p>
+    </div>
+
+    <h3 class="mt-4">Residential Experience: A Home for the Soul</h3>
+    <table class="table table-bordered text-light" style="background: rgba(0,0,0,0.45); border-radius: 8px;">
+      <thead>
+        <tr>
+          <th>Accommodation Tier</th>
+          <th>Description and Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dormitory Experience</td>
+          <td>A communal, minimalist living fostering community and spiritual solidarity. Highly economical and grounding.</td>
+        </tr>
+        <tr>
+          <td>Tent Stay</td>
+          <td>Private, simple living close to nature. Enhance peace and personal reflection in serene Gokarna locales.</td>
+        </tr>
+        <tr>
+          <td>Suite Living</td>
+          <td>Comfortable and spacious rooms for seekers requiring extra amenities and personal space to support their journey.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4 class="mt-4">Nourishment: Homemade Food Served with Love</h4>
+    <p>Enjoy sattvic, homemade food made from fresh, locally sourced ingredients—supporting clarity, high energy, and mindful eating.</p>
+
+    <h3 class="mt-4">The Path Forward: Embrace Your Essence</h3>
+    <ul>
+      <li>Clarity from confusion: Align decisions with your purpose.</li>
+      <li>Rediscover Inner Peace.</li>
+      <li>Joy of simple, present living.</li>
+    </ul>
+    <p>We provide tools, space, guidance, and nourishment. Your willingness to show up is the only requirement. This is your moment to pause, reflect, and renew.</p>
+
+    <div class="text-center" style="margin-top:2rem;">
+      <strong>We look forward to welcoming you to the Indian School of Meditation and supporting your journey into the Self.</strong>
+      <br>
+      
+    </div>
+  </section>
+
 </main>
 
 <footer>
@@ -386,6 +502,18 @@
       return 'Goodbye! Have a peaceful day.';
     }
     return "Sorry, I didn't understand that. Please rephrase.";
+  }
+
+  function toggleReadMore() {
+    const moreContent = document.getElementById('about-more');
+    const btn = event.target;
+    if (moreContent.style.display === 'none') {
+      moreContent.style.display = 'block';
+      btn.textContent = 'Read Less';
+    } else {
+      moreContent.style.display = 'none';
+      btn.textContent = 'Read More';
+    }
   }
 </script>
 
