@@ -1,0 +1,39 @@
+chatbot-web/
+│── server.js               # Main Express server
+│── db.js                   # MySQL connection
+│── package.json            # Dependencies
+│── .env                    # Environment variables
+│
+├── public/                 # Frontend static files
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── chat.js
+│   └── index.html
+│
+├── routes/
+│   ├── auth.js             # Admin login/logout
+│   ├── user.js             # Chat user login/logout
+│   └── admin.js            # Admin panel
+│   └── chat.js 
+├── controllers/
+│   ├── authController.js   # Handles admin login
+│   ├── userController.js   # Handles chat user login
+│   └── adminController.js  # Admin dashboard, user mgmt, chat history
+│
+├── views/                  # EJS templates
+│   ├── layout.ejs
+│   ├── login.ejs           # Admin login
+│   ├── login_user.ejs      # Chat user login
+│   ├── dashboard.ejs
+│   ├── chats.ejs
+│   ├── chat_users.ejs
+│   └── add_user.ejs
+    └── templates.ejs
+│
+├── uploads/                # Uploaded files
+│   ├── images/
+│   └── attachments/
+│
+└── scripts/
+    └── botdb.sql           # DB schema + sample data
