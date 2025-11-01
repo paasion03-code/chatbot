@@ -1,517 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Indian School of Meditation</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
-<!-- Bootstrap 5 CDN -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Open Sans', sans-serif;
-    background-image:  url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg?raw=true');
-    color: #444;
-    min-height: 100vh;
-  }
-  header {
-    position: relative;
-    background-image: url('https://github.com/paasion03-code/chatbot/blob/main/water.jpeg?raw=true');
-    background-position: center;
-    background-size: cover;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-  }
-  header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.45);
-  }
-  header h1 {
-    position: relative;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3em;
-    z-index: 1;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    padding: 0 20px;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 0 20px;
-  }
-  .container-box {
-    background-position: center;
-    background-size: cover;
-    color: white;
-    border-radius: 12px;
-    padding: 30px 25px;
-    margin-bottom: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    position: relative;
-  }
-  .container-box::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(0,0,0,0.55);
-    border-radius: 12px;
-    z-index: 0;
-  }
-  .container-box > * {
-    position: relative;
-    z-index: 1;
-  }
-  h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    color: #dbe9d6;
-  }
-  h3 {
-    color: #dbe9d6;
-  }
-  p {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #e1e9dd;
-  }
-  a.button-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background: #4a6514bb;
-    color: #e9f2de;
-    border-radius: 25px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 5px 12px rgba(74, 101, 20, 0.6);
-    transition: background-color 0.3s ease;
-  }
-  a.button-link:hover {
-    background-color: #3b4e10cc;
-  }
-  address {
-    font-style: normal;
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin-top: 15px;
-    color: #d3d9c7;
-  }
-  .phone {
-    font-weight: bold;
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #b5d176;
-  }
-  .whatsapp-link {
-    display: inline-block;
-    background-color: #25d366;
-    color: rgb(201, 234, 236);
-    padding: 10px 20px;
-    border-radius: 30px;
-    font-weight: 700;
-    text-decoration: none;
-    box-shadow: 0 5px 12px rgba(37, 211, 102, 0.6);
-    margin-top: 10px;
-  }
-  .whatsapp-link:hover {
-    background-color: #1ebe57;
-  }
-  .map {
-    height: 350px;
-    margin-top: 25px;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
-    border: none;
-  }
-  footer {
-    text-align: center;
-    padding: 15px;
-    background: #ecf0e9;
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 40px;
-    border-radius: 12px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  table {
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-  table th, table td {
-    padding: 10px 12px;
-  }
-  table th {
-    background: rgba(74, 101, 20, 0.7);
-    color: #e9f2de;
-    font-weight: 700;
-  }
-  table td {
-    background: rgba(0,0,0,0.4);
-    color: #dbe9d6;
-  }
-
-  /* Chat styles */
-  #chat-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(45deg, #7eae39, #4f6c27);
-    padding: 14px 20px;
-    border-radius: 25px;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(46,70,13,0.7);
-    transition: background 0.3s ease;
-    z-index: 1001;
-  }
-  #chat-toggle:hover {
-    background: linear-gradient(45deg, #5c8b1c, #3f5414);
-  }
-  #chat-box {
-    position: fixed;
-    bottom: 70px;
-    right: 20px;
-    width: 350px;
-    max-width: 90vw;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    font-family: 'Open Sans', sans-serif;
-    z-index: 1000;
-  }
-  #chat-header {
-    background: #6b8e23;
-    padding: 12px;
-    color: #fff;
-    font-weight: 600;
-  }
-  #chat-messages {
-    height: 240px;
-    overflow-y: auto;
-    padding: 10px;
-    background: #f8f9fa;
-  }
-  #chat-input-container {
-    display: flex;
-    padding: 10px;
-    border-top: 1px solid #e3e6ea;
-  }
-  #chat-input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 2px solid #6b8e23;
-    border-radius: 25px;
-    outline: none;
-    font-size: 1em;
-  }
-  #chat-send {
-    margin-left: 10px;
-    padding: 8px 16px;
-    background-color: #6b8e23;
-    color: #fff;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-  }
-  #chat-send:hover {
-    background-color: #4a6514;
-  }
-  @media(max-width: 620px) {
-    header h1 { font-size: 2em; }
-    .map { height: 250px; }
-    main { padding: 0 10px; }
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indian School of Meditation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg?raw=true');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: 'Open Sans', sans-serif;
+      color: #444;
+      min-height: 100vh;
+    }
+    section { scroll-margin-top: 80px; }
+    .hero-section {
+      background: rgba(255,255,255,0.08);
+      padding: 60px 0 36px 0;
+      text-align: left;
+    }
+    .hero-section h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #25485b;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+    .hero-section h2 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #25485b;
+      font-weight: 600;
+    }
+    .hero-section p.lead {
+      font-size: 1.21rem;
+      color: #393e46;
+    }
+    .card {
+      border-radius: 18px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      background: rgba(255,255,255,0.94);
+      margin-bottom: 24px;
+    }
+    .card h5 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #25485b;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 1em;
+      margin-bottom: 0;
+    }
+    .footer {
+      background: #e3f6de;
+      color: #25485b;
+      font-size: 1.03rem;
+      margin-top: 30px;
+    }
+    @media (max-width: 768px) {
+      .hero-section {
+        text-align: center;
+      }
+      .hero-section h1 { font-size: 2.2rem; }
+      .hero-section h2 { font-size: 1.3rem; }
+      #chat-box { width: 93vw; right: 3vw; }
+    }
+    /* Chat styles */
+    #chat-toggle {
+      position: fixed; bottom: 25px; right: 20px;
+      background: linear-gradient(45deg,#7eae39,#4f6c27);
+      padding: 15px 22px; border-radius: 26px; color:#fff; font-weight:700; cursor:pointer;
+      box-shadow: 0 8px 18px rgba(40,70,10,0.7); z-index:10001;
+      user-select: none;
+    }
+    #chat-box {
+      position: fixed; bottom: 80px; right: 20px;
+      width: 340px; max-width: 94vw;
+      background: #fff; border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      display: none; flex-direction: column; overflow:hidden; font-family:'Open Sans',sans-serif; z-index:10000;
+    }
+    #chat-header {
+      background: #357713; padding:14px; color: #fff; font-weight: 700;
+    }
+    #chat-messages {
+      padding:14px; min-height:120px; max-height:220px; overflow:auto;background:#fbfbfb;
+    }
+    #chat-input-container { display:flex; padding:12px;border-top:1px solid #eee; }
+    #chat-input { flex:1; padding:8px 14px; border:2px solid #357713; border-radius:22px; outline:none; font-size:1em; }
+    #chat-send { margin-left:8px; padding:6px 16px; background:#357713; color:#fff; border:none; border-radius:25px; cursor:pointer; font-weight:600;}
+    #chat-send:hover { background:#4a6514;}
+  </style>
 </head>
 <body>
-
-<header>
-  <h1>Indian School of Meditation</h1> <br><br
-<p>Find Your Inner Peace Today</p>
-</header>
-
-<main>
-
-  
-
-  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM%20(1).jpeg?raw=true');">
-    <h2>Our Philosophy</h2>
-    <p>At the Indian School of Meditation, we believe in nurturing the mind and soul through the ancient practise of meditation. Our approach blends traditional techniques with modern insights to create a holistic experience.</p>
-
-    <div class="container mt-4 p-0">
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card shadow h-100 border-success" style="background: rgba(255 255 255 / 0.15); color: white;">
-            <div class="card-header bg-success text-white fw-bold">Calibration</div>
-            <div class="card-body">
-              <p>Ensuring every practice and program is delivered by trainers whose own consciousness has been rigorously refined and certified by leading global and traditional schools.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow h-100 border-info" style="background: rgba(255 255 255 / 0.15); color: white;">
-            <div class="card-header bg-info text-white fw-bold">Holism</div>
-            <div class="card-body">
-              <p>Offering a diverse spectrum of practices—from Active meditations to silent Vipassana retreats and Tantra—to cater to the unique energy and needs of every seeker.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card shadow h-100 border-warning" style="background: rgba(255 255 255 / 0.15); color: white;">
-            <div class="card-header bg-warning text-dark fw-bold">Integration</div>
-            <div class="card-body">
-              <p>Providing an all-encompassing experience that nourishes the body, mind, and soul, recognizing that true spiritual growth requires a foundation of physical and emotional well-being.</p>
-            </div>
-          </div>
-        </div>
+  <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom py-2 sticky-top">
+    <div class="container">
+      <a class="navbar-brand fs-3 fw-bold" href="#home" style="font-family:'Montserrat';">ISM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#philosophy">Philosophy</a></li>
+          <li class="nav-item"><a class="nav-link" href="#programs">Programs</a></li>
+          <li class="nav-item"><a class="nav-link" href="#residential">Residential</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#programs" class="btn btn-success rounded-pill ms-3 px-4">Get Program Info</a>
       </div>
+    </div>
+  </nav>
 
-      <div class="row mt-4 justify-content-center">
-        <div class="col-lg-8">
-          <div class="card shadow border-primary" style="background: rgba(255 255 255 / 0.15); color: white;">
-            <div class="card-header bg-primary text-white fw-bold">Our Esteemed Host and Lineage</div>
-            <div class="card-body">
-              <p>The ISM experience is anchored by the wisdom and personalized guidance of our host, Dr. Joseph Prasad. Joseph brings a wealth of authentic, multi-disciplinary focused experience, ensuring a program that is both grounded and expansive.</p>
-            </div>
-          </div>
-        </div>
+  <!-- Hero Section -->
+  <section class="container hero-section" id="home">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1>Welcome to Indian School of Meditation</h1>
+        <p class="lead mb-4">
+          Your sanctuary for guided meditation at the serene beaches of Gokarna.<br>
+          Invest your time and energy to rediscover your spiritual self at ISM.
+        </p>
+        <h2>Why Choose ISM?</h2>
+        <p>
+          ISM is more than a retreat—it's a holistic sanctuary for transformation, led by expert trainers and rooted in both ancient wisdom and modern insight.
+        </p>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <img src="https://raw.githubusercontent.com/paasion03-code/chatbot/4437ca6086ab8e4076b156fda5580d8c443448b6/WhatsApp%20Image%202025-10-31%20at%2012.12.33%20PM%20(1).jpeg" alt="Meditation Beach" class="img-fluid rounded-4 shadow-lg">
       </div>
     </div>
   </section>
 
-  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM.jpeg?raw=true');">
-    <h2>Visit Us</h2>
-    <p>Better yet, see us in person! We love our customers, so feel free to visit during normal business hours.</p>
-    <address>
-      C/O Le Kadamba Homestay,<br>
-      Number42, Gangekolla, (near Ranga Mandira ground)<br>
-      Gangavali Beach Rd,<br>
-      Nadumaskeri post,<br>
-      Gokarna,<br>
-      Kumta taluk,<br>
-      Karnataka state, India <br>
-      PIN -581319<br>
-      <a href="tel:9600051234" aria-label="Call 9600051234" class="phone">Phone: 9600051234</a><br>
-      <a href="https://wa.me/919600051234" target="_blank" rel="noopener" class="whatsapp-link">Message us on WhatsApp</a>
-    </address>
-    <div class="map">
-      <iframe
-        src="https://maps.google.com/maps?q=14.582778,74.303306&z=15&output=embed"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        allowfullscreen
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <!-- Pillars - Philosophy -->
+  <section class="container" id="philosophy">
+    <h2 class="fw-bold mb-4">Our Philosophy</h2>
+    <div class="row gx-5">
+      <div class="col-md-4">
+        <div class="card p-4">
+          <h5>Calibration</h5>
+          <p>All programs delivered by trainers calibrated and certified at global and traditional schools, ensuring a refined teaching experience.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4">
+          <h5>Holism</h5>
+          <p>Wide spectrum of practices: <translate>Vipassana</translate>, Active Meditation, Tantra retreats—catering to the unique energy and needs of every seeker.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-4">
+          <h5>Integration</h5>
+          <p>All-encompassing approach that nourishes the body, mind, and soul—true spiritual growth includes physical and emotional well-being.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- New About Us Section with Read More -->
-  <section class="container-box" style="background-image: url('https://raw.githubusercontent.com/paasion03-code/chatbot/refs/heads/main/WhatsApp%20Image%202025-10-31%20at%2012.12.34%20PM.jpeg');">
-    <h2>About Us</h2>
-    <p>
-      Dr. Joseph Prasad holds respected certifications and deep spiritual lineage in meditation and tantra traditions. Alongside his band of calibrated trainers worldwide, he ensures the highest quality of teaching rooted in authoritative lineages and personal experience.
-    </p>
-    
-    <div id="about-more" style="display:none; margin-top: 1rem; color: #e1e9dd;">
-      <h3>Certifications Include:</h3>
-      <ul>
-        <li>Certified Meditation Trainer, Osho International Commune, Pune, India - focused on Dynamic and Cathartic meditation for the modern mind.</li>
-        <li>Tantra Practitioners' Program under Swami Mohan, Jaffna, Sri Lanka - mastering energy play, deep-rooted connections, and sacred life force integration.</li>
-        <li>Eastern Mysticism Course by Swami Rajendra Sharma, Uttarakhand - mastery over ancient Indian spiritual traditions and Himalayan esoteric wisdom.</li>
-      </ul>
-
-      <h3>Programs and The Seeker's Experience:</h3>
-      <p>
-        The Indian School of Meditation offers a flexible structure to meet the diverse needs of both casual explorers and dedicated practitioners. Our programs are designed to cultivate mind and soul growth uniquely tailored to each seeker’s journey.
-      </p>
-    </div>
-
-    <button onclick="toggleReadMore()" style="margin-top: 10px; padding: 8px 16px; background: #4a6514bb; color: #e9f2de; border: none; border-radius: 20px; cursor: pointer; font-weight: 700;">
-      Read More
-    </button>
-  </section>
-
-  <!-- Comprehensive Program Offerings Section -->
-  <section class="container-box" style="background-image: url('https://github.com/paasion03-code/chatbot/blob/main/WhatsApp%20Image%202025-10-31%20at%2012.12.35%20PM.jpeg?raw=true'); margin-bottom:0;">
-    <h2>Comprehensive Program Offerings</h2>
-    <div>
-      <h4>Daily Sessions</h4>
-      <p>Perfect for residents or short-stay visitors to integrate powerful, guided meditation into their day.</p>
-
-      <h4>Weekly & Monthly Sessions</h4>
-      <p>Structured courses exploring a specific meditation style in depth (<translate>Vipassana</translate>, Dynamic, Kundalini, Chakra Cleansing, etc.).</p>
-
-      <h4>Specialized Packages & Intensive Retreats</h4>
-      <p>Multi-day or multi-week retreats for deep healing and rejuvenation (themes: Inner Silence, Emotional Resilience, Consciousness Expansion).</p>
-
-      <h4>Group & 1:1 Sessions</h4>
-      <p>Available for both on-site and online participation, welcoming seekers worldwide into the ISM community.</p>
-
-      <h4>The Flagship: Train-the-Trainer Program (T3P)</h4>
-      <ul>
-        <li>Theory and Philosophy: Core texts, psychology, and meditation traditions.</li>
-        <li>Technique Mastery: Active & passive forms, teaching methodologies.</li>
-        <li>Personal Calibration: Self-practice for spiritual maturity.</li>
-        <li>Practical Teaching Experience: Supervised sessions & expert feedback.</li>
-      </ul>
-      <p>Successful T3P graduates are certified for world-class, ethical, and transformative guidance.</p>
-    </div>
-
-    <h3 class="mt-4">Residential Experience: A Home for the Soul</h3>
-    <table class="table table-bordered text-light" style="background: rgba(0,0,0,0.45); border-radius: 8px;">
-      <thead>
-        <tr>
-          <th>Accommodation Tier</th>
-          <th>Description and Focus</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Dormitory Experience</td>
-          <td>A communal, minimalist living fostering community and spiritual solidarity. Highly economical and grounding.</td>
-        </tr>
-        <tr>
-          <td>Tent Stay</td>
-          <td>Private, simple living close to nature. Enhance peace and personal reflection in serene Gokarna locales.</td>
-        </tr>
-        <tr>
-          <td>Suite Living</td>
-          <td>Comfortable and spacious rooms for seekers requiring extra amenities and personal space to support their journey.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h4 class="mt-4">Nourishment: Homemade Food Served with Love</h4>
-    <p>Enjoy sattvic, homemade food made from fresh, locally sourced ingredients—supporting clarity, high energy, and mindful eating.</p>
-
-    <h3 class="mt-4">The Path Forward: Embrace Your Essence</h3>
-    <ul>
-      <li>Clarity from confusion: Align decisions with your purpose.</li>
-      <li>Rediscover Inner Peace.</li>
-      <li>Joy of simple, present living.</li>
-    </ul>
-    <p>We provide tools, space, guidance, and nourishment. Your willingness to show up is the only requirement. This is your moment to pause, reflect, and renew.</p>
-
-    <div class="text-center" style="margin-top:2rem;">
-      <strong>We look forward to welcoming you to the Indian School of Meditation and supporting your journey into the Self.</strong>
-      <br>
-      
+  <!-- About / Programs -->
+  <section class="container my-5" id="programs">
+    <h2 class="fw-bold mb-4">Programs & About</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card p-4 mb-4 mb-md-0">
+          <h5>About Us & Host</h5>
+          <p>
+            Dr. Joseph Prasad, certified meditation trainer (Osho, Pune), tantra practitioner (Swami Mohan, Srilanka), and Eastern mysticism expert (Swami Rajendra Sharma, Uttarakhand), leads a band of global trainers for ISM’s holistic offerings.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card p-4 mb-4 mb-md-0">
+          <h5>Comprehensive Programs</h5>
+          <p>
+            Daily sessions, weekly and monthly courses, group & one-to-one practices (offline & online) and flagship Train-the-Trainer Certification (T3P).
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-</main>
+  <!-- Residential Experience Section -->
+  <section class="container" id="residential">
+    <h2 class="text-center mb-4 fw-bold">Residential Experience Tiers</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Dormitory Experience</h5>
+          <p>Communal, minimalist space fostering spiritual solidarity—highly economical and grounding.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Tent Stay</h5>
+          <p>Private, close-to-nature living at peaceful Gokarna—enhances personal reflection and inner peace.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3">
+          <h5>Suite Living</h5>
+          <p>Comfortable, spacious rooms with additional amenities—ideal for deeper personal practice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  &copy; 2025 Indian School of Meditation. All rights reserved.<br>
-  We use cookies to analyze website traffic and optimize your website experience.
-</footer>
+  <!-- Contact Section -->
+  <section class="container my-5" id="contact">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="card p-4 mb-4">
+          <h4 class="fw-bold">Contact Us</h4>
+          <address style="font-style:normal;">
+            <span class="fw-bold d-block my-1" style="font-size:1.1rem;">Indian School of Meditation</span>
+            C/O Le Kadamba Homestay,<br>
+            Number42, Gangekolla (near Ranga Mandira ground)<br>
+            Gangavali Beach Rd,<br>
+            Nadumaskeri post,<br>
+            Gokarna, Kumta taluk,<br>
+            Karnataka state, India<br>
+            PIN -581319
+          </address>
+          <div class="my-2">
+            <span class="fw-bold">Phone:</span>
+            <a href="tel:9600051234" class="ms-2 text-success fw-bold" style="font-size:1.13rem;">9600051234</a>
+          </div>
+          <div class="mb-2">
+            <span class="fw-bold">Email:</span>
+            <a href="mailto:ismgokarna@gmail.com" class="ms-2 text-success fw-bold" style="font-size:1.05rem;">ismgokarna@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card p-0 mb-4" style="overflow:hidden;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.9817940055842!2d74.3007909!3d14.5828006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbe811f95e598c9%3A0xea54f5de655f9447!2sLe%20Kadamba%20Stay!5e0!3m2!1sen!2sin!4v1698767154781!5m2!1sen!2sin"
+            width="100%" height="285" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="mb-2 text-center">
+          <a href="https://www.google.com/maps/place/Le+Kadamba+Stay/@14.5828006,74.3007909,875m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3bbe811f95e598c9:0xea54f5de655f9447!2sLe+Kadamba+Stay!8m2!3d14.5828006!4d74.3033712!16s%2Fg%2F11xzy0znwl!3m5!1s0x3bbe811f95e598c9:0xea54f5de655f9447!8m2!3d14.5828006!4d74.3033712!16s%2Fg%2F11xzy0znwl?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D"
+          target="_blank" class="btn btn-success rounded-pill mt-2 px-4">View Location on Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Chat UI -->
-<div id="chat-toggle">Chat</div>
-<div id="chat-box">
-  <div id="chat-header">How can I assist you?</div>
-  <div id="chat-messages"></div>
-  <div id="chat-input-container">
-    <input type="text" id="chat-input" placeholder="Type your message…" />
-    <button id="chat-send">Send</button>
+  <!-- Footer -->
+  <footer class="footer text-center py-4 rounded-4">
+    &copy; 2025 Indian School of Meditation. All rights reserved.<br>
+    We use cookies to analyze website traffic and optimize your website experience.
+  </footer>
+
+  <!-- Bootstrap JS (navbar toggle) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Chat Button & UI -->
+  <div id="chat-toggle">Chat</div>
+  <div id="chat-box">
+    <div id="chat-header">How can I assist you?</div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" class="form-control me-2" placeholder="Type your message..."/>
+      <button id="chat-send" class="btn btn-success">Send</button>
+    </div>
   </div>
-</div>
+  <script>
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop-90;
+        if(pageYOffset >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if(link.getAttribute("href").substring(1) === current) {
+          link.classList.add("active");
+        }
+      });
+    });
 
-<script>
-  const toggleBtn = document.getElementById('chat-toggle');
-  const chatBox = document.getElementById('chat-box');
-  toggleBtn.onclick = () => {
-    if (chatBox.style.display === 'flex') {
-      chatBox.style.display = 'none';
-      toggleBtn.textContent = 'Chat';
-    } else {
-      chatBox.style.display = 'flex';
-      chatBox.style.flexDirection = 'column';
-      toggleBtn.textContent = 'Close';
-      document.getElementById('chat-input').focus();
+    // Chat JS
+    document.getElementById('chat-toggle').onclick = function() {
+      var box = document.getElementById('chat-box');
+      box.style.display = (box.style.display === "none" || !box.style.display) ? "block" : "none";
+      this.textContent = box.style.display === "block" ? "Close" : "Chat";
     }
-  };
-
-  document.getElementById('chat-send').onclick = sendMsg;
-  document.getElementById('chat-input').onkeydown = e => {
-    if(e.key==='Enter') sendMsg();
-  };
-
-  function sendMsg() {
-    const input = document.getElementById('chat-input');
-    const msgText = input.value.trim();
-    if (!msgText) return;
-    appendMsg('user', msgText);
-    input.value = '';
-    setTimeout(() => {
-      const reply = generateReply(msgText);
-      appendMsg('bot', reply);
-    }, 600);
-  }
-
-  function appendMsg(sender, text) {
-    const msgDiv = document.createElement('div');
-    msgDiv.textContent = text;
-    msgDiv.style.padding = '8px 12px';
-    msgDiv.style.borderRadius = '16px';
-    msgDiv.style.marginBottom = '8px';
-    if(sender==='user') {
-      msgDiv.style.background='#d9f3d9';
-      msgDiv.style.textAlign='right';
-    } else {
-      msgDiv.style.background='#e2e7f7';
-      msgDiv.style.textAlign='left';
+    document.getElementById('chat-send').onclick = sendMsg;
+    document.getElementById('chat-input').onkeydown = function(e){ if(e.key==='Enter') sendMsg(); }
+    function sendMsg(){
+      var input = document.getElementById('chat-input');
+      var msgText = input.value.trim();
+      if(!msgText) return;
+      appendMsg('user', msgText);
+      input.value = '';
+      setTimeout(function(){
+        var reply = generateReply(msgText);
+        appendMsg('bot', reply);
+      }, 600);
     }
-    document.getElementById('chat-messages').appendChild(msgDiv);
-    document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
-  }
-
-  function generateReply(input) {
-    const msg = input.toLowerCase();
-    if(msg.includes('hello') || msg.includes('hi')){
-      return 'Hello! How can I assist you today?';
+    function appendMsg(sender, text){
+      var msgDiv = document.createElement('div');
+      msgDiv.textContent = text;
+      msgDiv.style.background = sender === 'user' ? '#e5f9e1' : '#e7ebfc';
+      msgDiv.style.textAlign = sender === 'user' ? 'right' : 'left';
+      msgDiv.style.marginBottom = '8px';
+      msgDiv.style.padding = '7px 12px';
+      msgDiv.style.borderRadius = '15px';
+      document.getElementById('chat-messages').appendChild(msgDiv);
+      document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
     }
-    if(msg.includes('meditation')){
-      return 'Meditation is a great way to relax. Would you like some tips?';
+    function generateReply(input){
+      var msg = input.toLowerCase();
+      if(msg.includes('hello')||msg.includes('hi')) return 'Hello! How can I assist you today?';
+      if(msg.includes('meditation')) return 'Meditation is a great way to relax. Would you like some tips?';
+      if(msg.includes('yes')) return 'Start by sitting quietly for 5 minutes, focusing on your breath.';
+      if(msg.includes('bye')||msg.includes('thanks')) return 'Goodbye! Have a peaceful day.';
+      return "Sorry, I didn't understand that. Please rephrase.";
     }
-    if(msg.includes('yes')){
-      return 'Start by sitting quietly for 5 minutes, focusing on your breath.';
-    }
-    if(msg.includes('bye') || msg.includes('thanks')){
-      return 'Goodbye! Have a peaceful day.';
-    }
-    return "Sorry, I didn't understand that. Please rephrase.";
-  }
-
-  function toggleReadMore() {
-    const moreContent = document.getElementById('about-more');
-    const btn = event.target;
-    if (moreContent.style.display === 'none') {
-      moreContent.style.display = 'block';
-      btn.textContent = 'Read Less';
-    } else {
-      moreContent.style.display = 'none';
-      btn.textContent = 'Read More';
-    }
-  }
-</script>
-
+  </script>
 </body>
 </html>
