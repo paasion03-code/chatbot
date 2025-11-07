@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,70 @@
       color: #444;
       min-height: 100vh;
     }
+ section {
+      scroll-margin-top: 80px;
+    }
 
+    .header-hero {
+      position: relative;
+      height: 420px;
+      display: flex;
+      align-items: center;
+      background: url('https://raw.githubusercontent.com/paasion03-code/chatbot/4437ca6086ab8e4076b156fda5580d8c443448b6/WhatsApp%20Image%202025-10-31%20at%2012.12.33%20PM%20(1).jpeg') center center no-repeat;
+      background-size: cover;
+      background-attachment: scroll;
+      color: #fff;
+      text-align: center;
+    }
+
+    .header-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      z-index: 0;
+    }
+
+    .header-hero-content {
+      z-index: 1;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    .header-hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 12px rgba(20, 20, 20, 0.4);
+    }
+
+    .header-hero p {
+      font-size: 1.22rem;
+      line-height: 1.8;
+      margin-bottom: 51px;
+      font-weight: 400;
+      text-shadow: 0 0 12px rgba(20, 20, 20, 0.2);
+    }
+
+    /* Change navbar background color */
+    .navbar {
+      background-color: #feffff !important;
+      /* example color */
+    }
+
+    /* Change background color on nav link hover */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      background-color: #8de665a1;
+      /* example hover color */
+      color: white !important;
+      /* text color on hover */
+      border-radius: 5px;
+      /* optional for rounded effect */
+      transition: background-color 0.3s ease;
+    }
     .section-title-card {
       background: rgba(76, 173, 75, 0.596);
       color: #ffffffc2;
@@ -95,7 +159,7 @@
 
     /* Residential Experience cards */
     .card-dormitory:hover {
-      background-image: url('your-dormitory-image-url.jpg');
+      background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1524372180675923824/original/a8aff25e-e140-446a-9d41-17b6930204c0.jpeg?im_w=1200');
       background-size: cover;
       background-position: center;
       color: white;
@@ -104,7 +168,7 @@
     }
 
     .card-tent:hover {
-      background-image: url('your-tent-image-url.jpg');
+      background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1524372180675923824/original/147dd547-9ffe-4abb-909a-687602120cf1.jpeg?im_w=1200');
       background-size: cover;
       background-position: center;
       color: white;
@@ -113,7 +177,7 @@
     }
 
     .card-suite:hover {
-      background-image: url('your-suite-image-url.jpg');
+      background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1524372180675923824/original/feefd8e2-807c-484a-b5eb-d72ee2561608.jpeg?im_w=1200');
       background-size: cover;
       background-position: center;
       color: white;
@@ -123,7 +187,7 @@
 
     /* Contact card hover image */
     .contact-card:hover {
-      background-image: url('your-contact-image-url.jpg');
+      background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1524372180675923824/original/fa65cf45-dd85-4d9a-a938-c976c1a1ce2f.jpeg?im_w=1200');
       background-size: cover;
       background-position: center;
       color: white;
@@ -138,7 +202,101 @@
       color: #25485b;
       margin-bottom: 10px;
     }
+     #chat-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 20px;
+      background: linear-gradient(45deg, #7eae39, #4f6c27);
+      padding: 15px 22px;
+      border-radius: 26px;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(40, 70, 10, 0.7);
+      z-index: 10001;
+      -webkit-user-select: none;
+      /* Safari 3+ */
+      user-select: none;
+    }
 
+    #chat-toggle:hover {
+      background: linear-gradient(45deg, #5c8b1c, #3f5414);
+    }
+
+    #chat-box {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 340px;
+      max-width: 94vw;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Open Sans', sans-serif;
+      z-index: 10000;
+    }
+
+    #chat-header {
+      background: #357713;
+      padding: 14px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    #chat-messages {
+      padding: 14px;
+      min-height: 120px;
+      max-height: 220px;
+      overflow: auto;
+      background: #fbfbfb;
+    }
+
+    #chat-input-container {
+      display: flex;
+      padding: 12px;
+      border-top: 1px solid #eee;
+    }
+
+    #chat-input {
+      flex: 1;
+      padding: 8px 14px;
+      border: 2px solid #357713;
+      border-radius: 22px;
+      outline: none;
+      font-size: 1em;
+    }
+
+    #chat-send {
+      margin-left: 8px;
+      padding: 6px 16px;
+      background: #357713;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    #chat-send:hover {
+      background: #4a6514;
+    }
+
+    @media (max-width: 768px) {
+      .header-hero h1 {
+        font-size: 2.05rem;
+      }
+
+      .section-title-card {
+        font-size: 1.2rem;
+      }
+
+      #chat-box {
+        width: 93vw;
+        right: 3vw;
+      }
     .card p {
       font-size: 1.08em;
       margin-bottom: 0;
@@ -167,51 +325,7 @@
     .border-none {
       border: 0;
     }
-
-
-    @media (max-width: 768px) {
-      .header-hero h1 {
-        font-size: 2.05rem;
-      }
-
-      .section-title-card {
-        font-size: 1.2rem;
-      }
-
-      #chat-box {
-        width: 93vw;
-        right: 3vw;
-      }
-
-      .card p {
-        font-size: 1.08em;
-        margin-bottom: 0;
-      }
-
-      .fw-bold {
-        font-weight: 700;
-      }
-
-      .font-size-1-1rem {
-        font-size: 1.1rem;
-      }
-
-      .font-size-1-05rem {
-        font-size: 1.05rem;
-      }
-
-      .font-size-1-13rem {
-        font-size: 1.13rem;
-      }
-
-      .address-normal-style {
-        font-style: normal;
-      }
-
-      .border-none {
-        border: 0;
-      }
-    }
+  }
   </style>
 </head>
 
@@ -251,7 +365,7 @@
     </div>
   </div>
 
-  <!-- Sections with Cards -->
+  <!-- Our Philosophy (Card Title) -->
   <section class="container mt-5" id="philosophy">
     <span class="section-title-card mb-5">Our Philosophy</span>
     <div class="row gx-5">
@@ -276,24 +390,28 @@
     </div>
   </section>
 
+  <!-- Programs/About -->
   <section class="container my-5" id="programs">
     <span class="section-title-card mb-5">Programs & About</span>
     <div class="row">
       <div class="col-md-6">
         <div class="card card-aboutus p-4 mb-4 mb-md-0">
           <h5>About Us & Host</h5>
-          <p>Dr.Prasad, Certified Meditation Trainer from the globally recognized Osho International Commune, Pune, India. This grounds his work in Dynamic and Cathartic meditation methods designed for the modern mind.</p>
+          <p>Dr.Prasad, Certified Meditation Trainer from the globally recognized Osho International Commune, Pune, India.
+            This grounds his work in Dynamic and Cathartic meditation methods designed for the modern mind.</p>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card card-comprehensive p-4 mb-4 mb-md-0">
           <h5>Comprehensive Programs</h5>
-          <p>Daily sessions, weekly and monthly courses, group & one-to-one practices (offline & online) and flagship Train-the-Trainer Certification (T3P).</p>
+          <p>Daily sessions, weekly and monthly courses, group & one-to-one practices (offline & online)
+            and flagship Train-the-Trainer Certification (T3P).</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Residential Experience (Card Title) -->
   <section class="container" id="residential">
     <span class="section-title-card mb-5">Residential Experience</span>
     <div class="row">
@@ -318,6 +436,7 @@
     </div>
   </section>
 
+  <!-- Contact Section -->
   <section class="container my-5" id="contact">
     <span class="section-title-card mb-5">Contact Us</span>
     <div class="row align-items-center">
@@ -356,13 +475,14 @@
     </div>
   </section>
 
-  <!-- Register Modal -->
+ <!-- Register Modal -->
   <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <form id="registerForm" class="modal-content needs-validation" novalidate>
         <div class="modal-header bg-success text-white">
           <h5 class="modal-title" id="registerModalLabel">Register for ISM Programs</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" title="Close"></button>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+            title="Close"></button>
         </div>
         <div class="modal-body">
           <div class="mb-3">
@@ -498,3 +618,4 @@
 </body>
 
 </html>
+
